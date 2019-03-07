@@ -91,7 +91,7 @@ let g:syntastic_python_checkers = ['pyflakes']
 
 "按F5 compile debug run C++"
 nnoremap <F5> <Esc>:w<CR>:!g++ -std=c++11 % -o /tmp/a.out && /tmp/a.out<CR>
-nnoremap <F7> <Esc>:w<CR>:!g++ -std=c++11 %<CR>
+nnoremap <F7> <Esc>:w<CR>:!g++ -std=c++11 % -o /tmp/a.out<CR>
 nnoremap <C-F5> <Esc>:w<CR>:!g++ -std=c++11 -g % -o /tmp/a.out && gdb /tmp/a.out<CR>
 
 
@@ -153,3 +153,14 @@ let g:autopep8_disable_show_diff=1
 let mapleader=','
 
 map <F4> <leader>ci <CR>
+
+auto BufNewFile *.md exec ":call JekyllMDHeader()"
+func JekyllMDHeader()
+    call setline(1, "---")
+    call append(1, "title: ")
+    call append(2, "layout: post")
+    call append(3, "author: WooOh")
+    call append(4, "category: 技术")
+    call append(5, "tags: []")
+    call append(6, "---")
+endfunc
