@@ -164,3 +164,68 @@ func JekyllMDHeader()
     call append(5, "tags: []")
     call append(6, "---")
 endfunc
+
+=========================================================
+set nocompatible
+
+filetype off
+filetype plugin indent on
+
+
+set number
+"set guioptions-=r 
+"set guioptions-=L
+"set guioptions-=b
+"set showtabline=0
+set guifont=Monaco:h13         
+set nowrap
+"set fileformat=unix
+"set cindent
+set tabstop=4
+set shiftwidth=4
+set showmatch
+set scrolloff=5
+set laststatus=2
+set fenc=utf-8
+set backspace=2
+set selection=exclusive
+set selectmode=mouse,key
+set matchtime=5
+set ignorecase
+set incsearch
+set hlsearch
+set noexpandtab
+set whichwrap+=<,>,h,l
+set autoread
+"set cursorline
+"set cursorcolumn
+syntax on
+"set background=dark
+"colorscheme solarized
+"let g:solarized_termcolors=256 
+
+"map <F5> :call RunPython()<CR>
+"function RunPython()
+"       exec "W"
+"       if &filetype == 'python'
+"               exec "!time python %"
+"       endif
+"endfunction
+
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '\<CR>'
+inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
+inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
+inoremap <expr> <PageDown> pumvisible() ? '\<PageDown>\<C-p>\<C-n>' : '\<PageDown>'
+inoremap <expr> <PageUp>   pumvisible() ? '\<PageUp>\<C-p>\<C-n>' : '\<PageUp>'
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+let mapleader=','
+
+map <F4> <leader>ci <CR>
